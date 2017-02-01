@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="it">
+    <meta name="robots" content="noindex">
+
+    <style>
+      section {
+        font-size: 100%;
+        width: 90%;
+      }
+      pre {
+        line-height: 1.2;
+        margin-top: -0.9%;
+        white-space: pre-line;
+        width: 50%;
+      }
+      article::after {
+        content: "---";
+        display: block;
+        margin-bottom: 1.2%;
+        margin-left: 25%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      {% for post in posts %}
+        <article>
+          <header>
+            <a href="{{post.permalink_url}}">#{{post.id}}</a>
+            <time datetime="{{post.created_time}}" itemprop="datePublished">{{post.created_time}}</time></p>
+          </header>
+          <pre>{{post.message}}</pre>
+        </article>
+      {% endfor %}
+    </section>
+  </body>
+</html>

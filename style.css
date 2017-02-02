@@ -30,6 +30,10 @@ hr {
   margin-top: 16px;
 }
 
+p {
+  white-space: pre-line;
+}
+
 p, a, span {
   font-family: 'PT Sans', sans-serif;
 }

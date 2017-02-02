@@ -3,37 +3,23 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Language" content="it">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
-
-    <style>
-      section {
-        font-size: 100%;
-        width: 90%;
-      }
-      pre {
-        line-height: 1.2;
-        margin-top: -0.9%;
-        white-space: pre-line;
-        width: 50%;
-      }
-      article::after {
-        content: "---";
-        display: block;
-        margin-bottom: 1.2%;
-        margin-left: 25%;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
 
   <body>
     <section>
       {% for post in posts %}
-        <article>
-          <header>
-            <a href="{{post.permalink_url}}">#{{post.id}}</a>
-            <time datetime="{{post.created_time}}" itemprop="datePublished">{{post.created_time}}</time></p>
-          </header>
-          <pre>{{post.message}}</pre>
+        <article class="post">
+          <p class="post__body">{{post.message}}</p>
+          <hr />
+          <footer class="post__footer">
+            <time class="post__date" datetime="{{post.created_time}}" itemprop="datePublished">
+              Published on {{post.created_time | date: "%m/%d/%y"}}
+            </time> - <a class="post__link" href="{{post.permalink_url}}" targe="_blank">Link to post</a>
+          </footer>
         </article>
       {% endfor %}
     </section>
